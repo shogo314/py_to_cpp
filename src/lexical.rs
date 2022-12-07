@@ -1,5 +1,7 @@
+pub mod identifier;
+use identifier::Identifier;
 pub enum Lexical {
-    Identifier(String),
+    Identifier(Identifier),
 }
 impl Clone for Lexical {
     fn clone(&self) -> Lexical {
