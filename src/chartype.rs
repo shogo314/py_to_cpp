@@ -10,7 +10,7 @@ pub fn is_separator(c: &char) -> bool {
 pub fn is_operator(c: &char) -> bool {
     "+-*/%=<>,.".find(c.clone()) != None
 }
-pub fn _is_backslash(c: &char) -> bool {
+pub fn is_backslash(c: &char) -> bool {
     *c == '\\'
 }
 pub fn is_hash(c: &char) -> bool {

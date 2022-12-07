@@ -19,12 +19,15 @@ pub enum Operator {
     Or,
     Xor,
     Contains,
+    Assign,
+    Comma,
+    FullStop,
 }
 impl std::fmt::Debug for Operator {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(
             f,
-            "Sep({})",
+            "Ope({})",
             match self {
                 Operator::Eq => "Eq",
                 Operator::Ne => "Ne",
@@ -46,6 +49,9 @@ impl std::fmt::Debug for Operator {
                 Operator::Or => "Or",
                 Operator::Xor => "Xor",
                 Operator::Contains => "Contains",
+                Operator::Assign => "Assign",
+                Operator::Comma => "Comma",
+                Operator::FullStop => "FullStop",
             }
         )?;
         Ok(())
@@ -74,13 +80,16 @@ impl Clone for Operator {
             Operator::Or => Operator::Or,
             Operator::Xor => Operator::Xor,
             Operator::Contains => Operator::Contains,
+            Operator::Assign => Operator::Assign,
+            Operator::Comma => Operator::Comma,
+            Operator::FullStop => Operator::FullStop,
         }
     }
 }
 pub fn is_ope(s: &str) -> bool {
     match s {
         "==" | "!=" | "<=" | "<" | ">=" | ">" | "not" | "and" | "or" | "+" | "-" | "*" | "/"
-        | "//" | "%" | "**" | "&" | "|" | "^" | "in" => true,
+        | "//" | "%" | "**" | "&" | "|" | "^" | "in" | "=" | "," | "." => true,
         _ => false,
     }
 }
@@ -107,6 +116,9 @@ pub fn to_ope(s: &str) -> Option<Operator> {
         "|" => Some(Operator::Or),
         "^" => Some(Operator::Xor),
         "in" => Some(Operator::Contains),
+        "=" => Some(Operator::Assign),
+        "," => Some(Operator::Comma),
+        "." => Some(Operator::FullStop),
         _ => None,
     }
 }
