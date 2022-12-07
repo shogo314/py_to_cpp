@@ -22,23 +22,23 @@ impl Clone for Lexical {
     fn clone(&self) -> Lexical {
         match self {
             Lexical::Identifier(x) => Lexical::Identifier(x.clone()),
-            Lexical::Keyword(x) => Lexical::Keyword(x.clone           ()),
-            Lexical::Separator(_) => todo!(),
-            Lexical::Operator(_) => todo!(),
-            Lexical::Literal(_) => todo!(),
-            Lexical::Comment(_) => todo!(),
+            Lexical::Keyword(x) => Lexical::Keyword(x.clone()),
+            Lexical::Separator(x) => Lexical::Separator(x.clone()),
+            Lexical::Operator(x) => Lexical::Operator(x.clone()),
+            Lexical::Literal(x) => Lexical::Literal(x.clone()),
+            Lexical::Comment(x) => Lexical::Comment(x.clone()),
         }
     }
 }
 impl std::fmt::Debug for Lexical {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
-            Lexical::Identifier(x) => write!(f, "Idn{:?}", x).unwrap(),
-            Lexical::Keyword(_) => todo!(),
-            Lexical::Separator(_) => todo!(),
-            Lexical::Operator(_) => todo!(),
-            Lexical::Literal(_) => todo!(),
-            Lexical::Comment(_) => todo!(),
+            Lexical::Identifier(x) => write!(f, "{:?}", x).unwrap(),
+            Lexical::Keyword(x) => write!(f, "{:?}", x).unwrap(),
+            Lexical::Separator(x) => write!(f, "{:?}", x).unwrap(),
+            Lexical::Operator(x) => write!(f, "{:?}", x).unwrap(),
+            Lexical::Literal(x) => write!(f, "{:?}", x).unwrap(),
+            Lexical::Comment(x) => write!(f, "{:?}", x).unwrap(),
         };
         Ok(())
     }
