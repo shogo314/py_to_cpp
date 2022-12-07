@@ -77,6 +77,14 @@ impl Clone for Operator {
         }
     }
 }
+pub fn is_ope(s: &str) -> bool {
+    match s {
+        "==" | "!=" | "<=" | "<" | ">=" | ">" | "not" | "and" | "or" | "+" | "-" | "*" | "/"
+        | "//" | "%" | "**" | "&" | "|" | "^" | "in" => true,
+        _ => false,
+    }
+}
+
 pub fn to_ope(s: &str) -> Option<Operator> {
     match s {
         "==" => Some(Operator::Eq),

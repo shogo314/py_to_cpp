@@ -17,7 +17,7 @@ impl LexicalLine {
             Some(y) => self.vl.push(y),
             None => (),
         }
-        if is_endofline(c_next) {
+        if is_endofline(&c_next) {
             let res = Some(LineUnit {
                 indent: 0,
                 value: self.vl.clone(),
