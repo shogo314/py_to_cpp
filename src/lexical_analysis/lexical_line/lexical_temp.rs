@@ -1,5 +1,3 @@
-use std::path::is_separator;
-
 use crate::chartype::*;
 use crate::lexical::comment::Comment;
 use crate::lexical::identifier::Identifier;
