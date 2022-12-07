@@ -1,5 +1,5 @@
 mod lexical_temp;
-use crate::{lexical::Lexical, lineunit::LineUnit};
+use crate::{chartype::is_endofline, lexical::Lexical, lineunit::LineUnit};
 use lexical_temp::LexicalTemp;
 pub struct LexicalLine {
     vl: Vec<Lexical>,
@@ -13,12 +13,11 @@ impl LexicalLine {
         }
     }
     pub fn update(&mut self, c_now: char, c_next: char) -> Option<LineUnit> {
-        let x = self.lt.update(c_now, c_next);
-        match x {
+        match self.lt.update(c_now, c_next) {
             Some(y) => self.vl.push(y),
             None => (),
         }
-        if c_next == '\n' {
+        if is_endofline(c_next) {
             let res = Some(LineUnit {
                 indent: 0,
                 value: self.vl.clone(),

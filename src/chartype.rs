@@ -16,3 +16,13 @@ pub fn _is_backslash(c: char) -> bool {
 pub fn _is_hash(c: char) -> bool {
     c == '#'
 }
+pub const END_OF_LINE: char = '\n';
+pub fn is_endofline(c: char) -> bool {
+    c == '\n'
+}
+pub fn is_whitespace(c: char) -> bool {
+    c == ' ' || c == '\n'
+}
+pub fn _is_space(c: char) -> bool {
+    c == ' '
+}
