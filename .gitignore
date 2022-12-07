@@ -1,0 +1,5 @@
+/target
+/output.cpp
+/input.py
+# cargo run < input.py > output.cpp
+/.bat
