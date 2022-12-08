@@ -27,7 +27,7 @@ impl std::fmt::Debug for Operator {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(
             f,
-            "Ope({})",
+            "Ope{:?}",
             match self {
                 Operator::Eq => "Eq",
                 Operator::Ne => "Ne",

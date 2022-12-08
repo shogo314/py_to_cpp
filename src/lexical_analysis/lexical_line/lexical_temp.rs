@@ -40,26 +40,27 @@ impl LexicalTemp {
             } else if is_separator(c) {
                 Lexical::Separator(to_sep(s).unwrap())
             } else if is_hash(c) {
-                Lexical::Comment(Comment::Name(s.to_string()))
+                Lexical::Comment(Comment::Name(s[1..].trim().to_string()))
             } else if *c == '\'' || *c == '\"' {
-                Lexical::Literal(Literal::String(s.to_string()))
+                Lexical::Literal(Literal::String(s[1..s.len() - 1].to_string()))
             } else {
                 panic!("{:?} is not.", s)
             }
         }
         fn decision_add(s: &str, c: &char) -> bool {
-            let c0 = s.chars().nth(0).unwrap();
-            if is_letter(&c0) && (is_letter(c) || is_numeral(c))
-                || is_numeral(&c0) && is_numeral(c)
-                || is_operator(&c0) && is_operator(c)
+            let c0 = &s.chars().nth(0).unwrap();
+            if is_letter(c0) && (is_letter(c) || is_numeral(c))
+                || is_numeral(c0) && is_numeral(c)
+                || is_operator(c0) && is_operator(c)
+                || is_hash(c0)
             {
                 true
-            } else if c0 == '\'' || c0 == '\"' {
+            } else if *c0 == '\'' || *c0 == '\"' {
                 if s.len() >= 2 {
-                    let c1 = s.chars().nth(s.len() - 1).unwrap();
+                    let c1 = &s.chars().nth(s.len() - 1).unwrap();
                     if c1 == c0 {
-                        let c2 = s.chars().nth(s.len() - 2).unwrap();
-                        if is_backslash(&c2) {
+                        let c2 = &s.chars().nth(s.len() - 2).unwrap();
+                        if is_backslash(c2) {
                             true
                         } else {
                             false
