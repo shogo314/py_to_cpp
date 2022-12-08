@@ -65,3 +65,19 @@ pub fn to_key(s: &str) -> Option<Keyword> {
         _ => None,
     }
 }
+impl ToString for Keyword {
+    fn to_string(&self) -> String {
+        match self {
+            Keyword::Break => "break",
+            Keyword::Continue => "continue",
+            Keyword::If => "if",
+            Keyword::Elif => "elif",
+            Keyword::Else => "else",
+            Keyword::For => "for",
+            Keyword::In => "in",
+            Keyword::While => "while",
+            Keyword::Return => "return",
+        }
+        .to_string()
+    }
+}

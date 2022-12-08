@@ -54,3 +54,18 @@ pub fn to_sep(s: &str) -> Option<Separator> {
         _ => None,
     }
 }
+impl ToString for Separator {
+    fn to_string(&self) -> String {
+        match self {
+            Separator::LeftParenthesis => "(",
+            Separator::RightParenthesis => ")",
+            Separator::LeftSquareBracket => "[",
+            Separator::RightSquareBracket => "]",
+            Separator::LeftCurlyBracket => "{",
+            Separator::RightCurlyBracket => "}",
+            Separator::Colon => ":",
+            Separator::Semicolon => ";",
+        }
+        .to_string()
+    }
+}

@@ -122,3 +122,33 @@ pub fn to_ope(s: &str) -> Option<Operator> {
         _ => None,
     }
 }
+impl ToString for Operator {
+    fn to_string(&self) -> String {
+        match self {
+            Operator::Eq => "==",
+            Operator::Ne => "!=",
+            Operator::Le => "<=",
+            Operator::Lt => "<",
+            Operator::Ge => ">=",
+            Operator::Gt => ">",
+            Operator::LNot => "not",
+            Operator::LAnd => "and",
+            Operator::LOr => "or",
+            Operator::Add => "+",
+            Operator::Sub => "-",
+            Operator::Mul => "*",
+            Operator::Truediv => "/",
+            Operator::Floordiv => "//",
+            Operator::Mod => "%",
+            Operator::Pow => "**",
+            Operator::And => "&",
+            Operator::Or => "|",
+            Operator::Xor => "^",
+            Operator::Contains => "in",
+            Operator::Assign => "=",
+            Operator::Comma => ",",
+            Operator::FullStop => ".",
+        }
+        .to_string()
+    }
+}

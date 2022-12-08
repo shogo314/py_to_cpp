@@ -25,7 +25,7 @@ impl LexicalTemp {
                     Lexical::Operator(to_ope(s).unwrap())
                 } else if s == "True" {
                     Lexical::Literal(Literal::Boolean(true))
-                } else if s == "false" {
+                } else if s == "False" {
                     Lexical::Literal(Literal::Boolean(false))
                 } else {
                     Lexical::Identifier(Identifier::Name(s.to_string()))

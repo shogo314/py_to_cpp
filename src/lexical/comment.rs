@@ -16,3 +16,11 @@ impl std::fmt::Debug for Comment {
         Ok(())
     }
 }
+impl ToString for Comment {
+    fn to_string(&self) -> String {
+        match self {
+            Comment::Name(x) => x,
+        }
+        .to_string()
+    }
+}

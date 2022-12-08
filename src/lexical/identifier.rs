@@ -16,3 +16,11 @@ impl std::fmt::Debug for Identifier {
         Ok(())
     }
 }
+impl ToString for Identifier {
+    fn to_string(&self) -> String {
+        match self {
+            Identifier::Name(x)=>x
+        }
+        .to_string()
+    }
+}

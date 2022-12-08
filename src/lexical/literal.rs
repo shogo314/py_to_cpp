@@ -26,3 +26,18 @@ impl std::fmt::Debug for Literal {
         Ok(())
     }
 }
+impl ToString for Literal {
+    fn to_string(&self) -> String {
+        match self {
+            Literal::Integer(x) => x.to_string(),
+            Literal::String(x) => x.to_string(),
+            Literal::Boolean(x) => {
+                if *x {
+                    "True".to_string()
+                } else {
+                    "False".to_string()
+                }
+            }
+        }
+    }
+}

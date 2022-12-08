@@ -8,7 +8,7 @@ pub fn is_separator(c: &char) -> bool {
     "(){{}}[]:;".find(c.clone()) != None
 }
 pub fn is_operator(c: &char) -> bool {
-    "+-*/%=<>,.".find(c.clone()) != None
+    "+-*/%=<>,.&|^".find(c.clone()) != None
 }
 pub fn is_backslash(c: &char) -> bool {
     *c == '\\'
